@@ -50,3 +50,5 @@ vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { silent = true, noremap =
 vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>gB", ":Git blame<CR>", { silent = true, noremap = true })
+
+-- vim.keymap.set("n", "<leader>uC", ":Telescope themes<CR>", { silent = true, noremap = true })

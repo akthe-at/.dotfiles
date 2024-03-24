@@ -1,4 +1,11 @@
 return {
+  { "danymat/neogen", config = true },
+  {
+    "lukas-reineke/headlines.nvim",
+    ft = { "markdown", "rmd", "qmd", "ipynb" },
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {},
+  },
   {
     "ThePrimeagen/refactoring.nvim",
     keys = {
@@ -18,18 +25,17 @@ return {
     opts = {},
   },
   {
-    "zeioth/garbage-day.nvim",
-    dependencies = "neovim/nvim-lspconfig",
-    event = { "LazyFile" },
-    opts = {},
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "tokyonight-night",
-      -- colorscheme = "dracula",
-      colorscheme = "rose-pine",
+      -- colorscheme = "gruvbox-material",
+      -- colorscheme = "kanagawa",
+      colorscheme = "dracula",
+      -- colorscheme = "catppuccin",
+      -- colorscheme = "rose-pine",
+      -- colorscheme = "miss-dracula",
       -- colorscheme = "gruvbox",
+      -- colorscheme = function() end,
     },
   },
   { "willothy/wezterm.nvim", event = { "LazyFile" } },
@@ -39,7 +45,7 @@ return {
     opts = {
       ---@type lspconfig.options
       inlay_hints = {
-        enabled = true,
+        enabled = false,
       },
       codelens = {
         enabled = false,
@@ -50,21 +56,32 @@ return {
         bashls = {},
         r_language_server = {},
         pyright = {
+          enabled = false,
+          --   settings = {
+          --     pyright = {
+          --       -- use ruff instead
+          --       disableOrganizeImports = true,
+          --     },
+          --     -- use ruff only for linting, just use pyright for LSP faetures
+          --     python = {
+          --       analysis = {
+          --         ignore = { "*" },
+          --       },
+          --     },
+          --   },
+        },
+        basedpyright = {
           settings = {
-            pyright = {
-              -- use ruff instead
-              disableOrganizeImports = true,
-            },
-            -- use ruff only for linting, just use pyright for LSP faetures
-            python = {
+            disableOrganizeImports = true,
+            basedpyright = {
               analysis = {
                 ignore = { "*" },
               },
+              typeCheckingMode = "standard",
             },
           },
         },
         ruff_lsp = {},
-        sqls = {},
         htmx = {},
         powershell_es = {},
         marksman = {},
@@ -72,7 +89,7 @@ return {
         rust_analyzer = {},
         tailwindcss = {
           filetypes_exclude = { "markdown" },
-          filetypes_include = { "html" },
+          filetypes_include = { "html", "htmldjango" },
         },
         lua_ls = {
           settings = {
@@ -95,6 +112,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = {
+      extensions_list = { "themes", "terms" },
       pickers = {
         find_files = {
           find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },

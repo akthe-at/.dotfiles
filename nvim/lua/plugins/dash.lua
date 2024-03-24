@@ -1,5 +1,6 @@
 return {
   "nvimdev/dashboard-nvim",
+  enabled = true,
   event = "VimEnter",
   opts = function()
     local logo = [[
@@ -12,7 +13,6 @@ return {
     ]]
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
-    local Util = require("lazyvim.util")
     local opts = {
       theme = "doom",
       hide = {
@@ -30,7 +30,7 @@ return {
           { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
           { action = "FzfLua oldfiles",                                       desc = " Recent files",    icon = " ", key = "r" },
           { action = "FzfLua live_grep_native",                                  desc = " Find text",       icon = " ", key = "g" },
-          { action = [[lua require("lazyvim.util").telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
+          { action = [[lua LazyVim.telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
           { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },

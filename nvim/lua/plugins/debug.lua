@@ -5,16 +5,6 @@ return {
     config = function(_, opts)
       require("mason-nvim-dap").setup(opts)
       local dap = require("dap")
-      dap.configurations.lua = {
-        {
-          type = "nlua",
-          request = "attach",
-          name = "Attach to running Neovim instance",
-        },
-      }
-      dap.adapters.nlua = function(callback, config)
-        callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 })
-      end
       dap.adapters.python = function(cb, config)
         if config.request == "attach" then
           ---@diagnostic disable-next-line: undefined-field
@@ -32,7 +22,7 @@ return {
         else
           cb({
             type = "executable",
-            command = "~\\AppData\\Local\\Programs\\Python\\Python312\\pythonw.exe",
+            command = "C:\\Users\\ARK010\\AppData\\Local\\Programs\\Python\\Python312\\pythonw.exe",
             args = { "-m", "debugpy.adapter" },
             options = {
               source_filetype = "python",
@@ -60,7 +50,7 @@ return {
             elseif vim.fn.executable(cwd .. "/.venv/Scripts/pythonw.exe") == 1 then
               return cwd .. "/.venv/Scripts/pythonw.exe"
             else
-              return "~\\.virtualenvs\\debugpy\\Scripts\\pythonw.exe"
+              return "C:\\Users\\ARK010\\.virtualenvs\\debugpy\\Scripts\\pythonw.exe"
             end
           end,
         },

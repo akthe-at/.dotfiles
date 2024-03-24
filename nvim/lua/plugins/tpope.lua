@@ -7,6 +7,7 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
       "nvim-telescope/telescope.nvim", -- optional
     },
+    opts = { integrations = { diffview = true, telescope = true } },
     config = true,
   },
   {
@@ -33,10 +34,10 @@ return {
       vim.g.fugitive_no_maps = 1
     end,
   },
-  {
-    "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-    event = "LazyFile",
-  },
+  -- {
+  --   "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+  --   event = "LazyFile",
+  -- },
   {
     "kristijanhusak/vim-dadbod-ui",
     cmd = {

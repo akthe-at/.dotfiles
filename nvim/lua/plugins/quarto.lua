@@ -1,6 +1,7 @@
 return {
   {
     "GCBallesteros/jupytext.nvim",
+    lazy = false,
     ft = { "ipynb", "python", "md" },
     config = function()
       require("jupytext").setup({
@@ -22,6 +23,8 @@ return {
     config = function()
       local quarto = require("quarto")
       quarto.setup({
+        debug = false,
+        closePreviewOnExit = true,
         lspFeatures = {
           languages = { "r", "python" },
           chunks = "all", -- 'curly' or 'all'
@@ -34,8 +37,9 @@ return {
           },
         },
         keymap = {
-          hover = "H",
+          hover = "K",
           definition = "gd",
+          type_definition = "gD",
           rename = "<leader>rn",
           references = "gr",
           format = "<leader>gf",

@@ -130,6 +130,8 @@ return {
       min_chars = 2,
     },
     daily_notes = {
+      -- optional folder to keep daily notes in:
+      folder = "notes/daily",
       -- Optional, if you want to change the date format for the ID of daily notes.
       date_format = "%Y-%m-%d",
       -- Optional, if you want to change the date format of the default alias of daily notes.

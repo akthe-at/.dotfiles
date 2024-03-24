@@ -22,7 +22,7 @@ return {
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "hrsh7th/cmp-buffer",
       "R-nvim/cmp-r",
-      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+      "luckasRanarison/tailwind-tools.nvim",
     },
     opts = function(_, opts)
       local luasnip = require("luasnip")
@@ -39,14 +39,14 @@ return {
         end,
       }
       opts.sources = {
-        { name = "copilot" },
+        -- { name = "copilot" },
         { name = "nvim_lsp_signature_help" },
         { name = "nvim_lsp", keyword_length = 1 },
+        { name = "otter" },
         { name = "luasnip", keyworld_length = 2 },
         { name = "path" },
         { name = "buffer", keyword_length = 3 },
         -- { name = "cmp_r" },
-        { name = "tailwindcss" },
       }
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-y>"] = cmp.mapping.confirm({ select = true }),
@@ -65,13 +65,16 @@ return {
       table.insert(opts.snippet, { name = "luasnip" })
       opts.formatting = {
         format = lspkind.cmp_format({
+          before = require("tailwind-tools.cmp").lspkind_format,
           with_text = true,
           menu = {
+            -- copilot = "[Copilot]",
             nvim_lsp = "[LSP]",
             luasnip = "[LuaSnip]",
             path = "[Path]",
             buffer = "[Buffer]",
             cmp_r = "[R]",
+            otter = "[Otter]",
           },
         }),
       }

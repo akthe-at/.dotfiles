@@ -8,16 +8,26 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 4
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
+    vim.opt_local.conceallevel = 0
     vim.opt_local.smartindent = true
     vim.opt_local.foldmethod = "indent"
   end,
 })
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     client.server_capabilities.semanticTokensProvider = nil
+--   end,
+-- })
 
 -- wrap  in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.opt_local.wrap = true
+    vim.opt.spelllang = "en_us"
+    vim.opt.spell = true
   end,
 })
 
@@ -27,6 +37,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2
+    vim.opt_local.conceallevel = 0
     vim.opt_local.softtabstop = 2
     vim.opt_local.smartindent = true
     vim.opt_local.foldmethod = "indent"

@@ -26,7 +26,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "tokyonight", "default" } },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
@@ -44,3 +44,13 @@ require("lazy").setup({
     },
   },
 })
+
+-- dofile(vim.g.base46_cache .. "defaults")
+
+-- or if you want to load all base46 integrations at startup itself
+
+-- local integrations = require("nvconfig").base46.integrations
+--
+-- for _, name in ipairs(integrations) do
+--   dofile(vim.g.base46_cache .. name)
+-- end

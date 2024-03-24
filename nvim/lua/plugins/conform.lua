@@ -17,6 +17,9 @@ return {
         command = "StyleScript",
         args = { "$FILENAME" },
       },
+      sql_formatter = {
+        prepend_args = { "-c", vim.fn.expand("~/.config/sql_formatter.json") },
+      },
     },
     formatters_by_ft = {
       lua = { "stylua" },
@@ -25,6 +28,8 @@ return {
       javascript = { "prettier" },
       r = { "rpretty" },
       sh = { "shfmt" },
+      sql = { "sql_formatter" },
+      ["*"] = { "injected" },
     },
   },
 }

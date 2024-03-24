@@ -1,32 +1,63 @@
-local Util = require("lazyvim.util")
 return {
-  {
-    "NvChad/nvim-colorizer.lua",
-    event = "BufReadPre",
-    opts = {
-      user_default_options = {
-        tailwind = true,
-      },
-    },
-  },
   { "xiyaowong/transparent.nvim", lazy = false },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    ft = { "html" },
+    opts = {},
+  },
+  -- {
+  --   "mofiqul/dracula.nvim",
+  --   lazy = true,
+  --   enabled = true,
+  --   priority = 1000,
+  --   keys = {
+  --     { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+  --   },
+  --   opts = {},
+  --   config = function()
+  --     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  --       border = "rounded",
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "maxmx03/dracula.nvim",
+  --   lazy = true,
+  --   enabled = true,
+  --   priority = 1000,
+  --   keys = {
+  --     { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+  --   },
+  --   opts = {},
+  --   config = function()
+  --     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  --       border = "rounded",
+  --     })
+  --   end,
+  -- },
   {
     "binhtran432k/dracula.nvim",
     lazy = true,
+    enabled = true,
     priority = 1000,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     opts = {},
+    config = function()
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
+      })
+    end,
   },
   {
     "sainnhe/everforest",
     name = "everforest",
+    enabled = true,
     lazy = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
-    enabled = true,
     priority = 1000,
     config = function()
       vim.g.everforest_background = "hard"
@@ -40,17 +71,17 @@ return {
     "fynnfluegge/monet.nvim",
     name = "monet",
     lazy = true,
-    keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
-    },
     enabled = true,
+    keys = {
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+    },
     opts = { transparent_background = false },
   },
   {
     "catppuccin/nvim",
     lazy = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     enabled = true,
     priority = 1000,
@@ -114,7 +145,7 @@ return {
     enabled = true,
     lazy = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     priority = 1000,
     opts = {
@@ -127,7 +158,7 @@ return {
     enabled = true,
     lazy = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     priority = 1000,
   },
@@ -136,7 +167,7 @@ return {
     enabled = true,
     lazy = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     priority = 1000,
     branch = "main",
@@ -145,22 +176,13 @@ return {
   },
   {
     "craftzdog/solarized-osaka.nvim",
-    lazy = true,
+    lazy = false,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     enabled = true,
     priority = 1000,
     opts = {},
-  },
-  {
-    "maxmx03/dracula.nvim",
-    enabled = true,
-    lazy = true, -- make sure we load this during startup if it is your main colorscheme
-    keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
-    },
-    priority = 1000, -- make sure to load this before all the other start plugins
   },
   {
     "ellisonleao/gruvbox.nvim",
@@ -168,7 +190,7 @@ return {
     enabled = true,
     lazy = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     config = true,
     opts = {
@@ -199,23 +221,41 @@ return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
+    enabled = true,
     opts = {
       sidebars = "dark",
       style = "night",
       floats = "dark",
       dim_inactive = true,
       hide_inactive_statusline = true,
-      lualine_bold = true,
+      lualine_bold = false,
     },
     config = function()
       vim.o.termguicolors = true
     end,
   },
+  -- {
+  --   "akthe-at/tokyonight.nvim",
+  --   branch = "dracula",
+  --   priority = 1000,
+  --   enabled = true,
+  --   opts = {
+  --     -- sidebars = "dark",
+  --     -- style = "night",
+  --     -- floats = "dark",
+  --     dim_inactive = true,
+  --     hide_inactive_statusline = true,
+  --     lualine_bold = true,
+  --   },
+  --   config = function()
+  --     vim.o.termguicolors = true
+  --   end,
+  -- },
   {
     "sainnhe/gruvbox-material",
     enabled = true,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     priority = 1000,
     lazy = true,
@@ -224,10 +264,11 @@ return {
   },
   {
     "rose-pine/neovim",
+    enabled = true,
     name = "rose-pine",
     priority = 1000,
     keys = {
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+      { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     },
     config = function()
       require("rose-pine").setup({
@@ -251,7 +292,7 @@ return {
           CmpWinBorder = { fg = "overlay", bg = "base" },
         },
       })
-      vim.cmd("colorscheme rose-pine")
+      -- vim.cmd("colorscheme rose-pine")
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
       })
@@ -262,7 +303,7 @@ return {
   --   name = "rose-pine",
   --   lazy = true,
   --   keys = {
-  --     { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+  --     { "<leader>uC", LazyVim.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
   --   },
   --   priority = 1000,
   --   config = function()
